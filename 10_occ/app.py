@@ -1,7 +1,7 @@
-# Moududur "Moody" Rahman
+# Moududur "Moody" Rahman and Justin Chen
 # SoftDev1 pd2
 # K10 -- Jinja Tuning
-# 2019-09-21
+# 2019-09-23
 
 
 from flask import Flask, render_template
