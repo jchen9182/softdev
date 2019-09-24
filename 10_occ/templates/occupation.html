@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class = "terminal">
+
+      <div>
+        THE CS MARKET IS FLOODED WITH RECENT GRADUATES
+        <br>
+        WHAT TO DO NOW?
+      </div>
+      <br>
+      <br>
+
+      TEAM: COBALT OCEAN
+      <br>
+      MEMBERS: MOUDUDUR RAHMAN | JUSTIN CHEN
+      <br>
+      PERIOD 2
+      <br>
+      <br>
+      <br>
+    your assigned job is {{jobinp}}
+    <br>
+    <br>
+    <br>
+
+    <table>
+      <div class = "title">
+      <tr>
+          <td>Job Class</td>
+          <td>Percentage</td>
+      </tr>
+    </div>
+
+      {% for i in twat %}
+      <tr>
+        <td><a href="{{i[2]}}">{{i[0]}}</a></td>
+        <td>{{i[1]}}</td>
+
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+  </body>
+</html>
