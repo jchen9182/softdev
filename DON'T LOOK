@@ -1,0 +1,80 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def main():
+    return "Hello"
+
+@app.route('/auth')
+def auth():
+    print(app)
+    print(request)
+    print(request.args)
+    print(request.args["Username"])
+    print("info")
+    print(request.headers)
+    return render_template("response.html",
+    username = request.args.get('Username'),
+    color = request.args.get("Color"),
+    method = request.method)
+
+@app.route('/index.html')
+def hello_world():
+    print(app)
+    print(request)
+    print(request.args)
+    return render_template("index.html")
+
+if __name__ == "__main__":
+        app.debug = True
+        app.run()
+
+RESPONSE
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      Team PineapplePizza
+      <br>
+      Justin Chen and Brian Moses
+      <hr>
+      Hello {{username}}.
+
+      {% if Color == "Green" %}
+        Hi
+      {% endif %}
+
+      Your favorite color is {{color}}
+      <br> <br>
+      (Method used: {{method}})
+    </body>
+</html>
+
+INDEX
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      Team PineapplePizza
+      <br>
+      Justin Chen and Brian Moses
+      <hr>
+      <form action = "\auth">
+        Enter your username:
+        <br>
+        <input type = "text" name = "Username">
+        <br>
+        Your favorite color is:
+        <br>
+        <input type = "radio" name = "Color" value = "Blue"> Blue <br>
+        <input type = "radio" name = "Color" value = "Red"> Red <br>
+        <input type = "radio" name = "Color" value = "Green"> Green <br>
+        <input type = "submit" value = "Submit">
+      </form>
+    </body>
+</html>
+        
+ 
