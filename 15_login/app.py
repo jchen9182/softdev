@@ -1,7 +1,7 @@
-# William Lin
+# William Lin, Justin Chen
 # SoftDev1 pd2
-# K #:
-#
+# K #15: Flask with login and logout
+# 2019-10-03
 
 from flask import Flask, render_template, request, session, redirect, url_for, session
 import os
@@ -27,16 +27,16 @@ def hello_world():
 @app.route("/welcome", methods = ["GET", "POST"])
 def welcome():
     print("    USER LOGGED IN")
-    user = request.form["username"]
-    passwd = request.form["password"]
+    user = request.form["username"] #stores uername
+    passwd = request.form["password"] #stores password
     print("    USER: " + str(user))
     print("    PASS: " + str(passwd))
     session["USER"] = user
     session["PASS"] = passwd
     print("    SESSION STARTED")
     print("    " + str(session))
-    if (user == username and passwd == password):
-        global loggedOut 
+    if (user == username and passwd == password): #checks login info
+        global loggedOut
         loggedOut = True
         return render_template("welcome.html")
     return redirect(url_for("error"))
