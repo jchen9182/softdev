@@ -4,11 +4,9 @@
     Error!
 {% endblock %}
 
-{% block header %}
-    <h1> Uh oh! Something went wrong :( </h1>
-{% endblock %}
-
 {% block content %}
+    <b> Uh oh! Something went wrong :( </b>
+    <br>
     {% if whichError == 0 %}
     Your password is incorrect
     {% endif %}
