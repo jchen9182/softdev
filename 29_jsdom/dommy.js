@@ -1,27 +1,33 @@
 var changeHeading = function(e) {
     var h = document.getElementById("h");
-    h.innerHTML = ///
+    h.innerHTML = e.target.innerHTML;
+};
+
+var defaultHeading = function() {
+    var h = document.getElementById("h");
+    h.innerHTML = "Hello World!"
 };
 
 var removeItem = function(e) {
-    ///
+    e.target.remove();
 };
 
 var lis = document.getElementsByTagName("li");
 
 for (var i = 0; i < lis.length; i++) {
     lis[i].addEventListener('mouseover', changeHeading);
-    lis[i].addEventListener('mouseout', changeHeading);
+    lis[i].addEventListener('mouseout', defaultHeading);
     lis[i].addEventListener('click', removeItem);
 }
 
 var addItem = function(e) {
-    var list = lis;
+    var list = document.getElementById("thelist");
     var item = document.createElement("li");
-    item = "WORD";
-    ///
-    ///
-    list.append(item);
+    item.innerHTML = "WORD";
+    item.addEventListener('mouseover', changeHeading);
+    item.addEventListener('mouseout', changeHeading);
+    item.addEventListener('click', removeItem);
+    list.appendChild(item);
 };
 
 var button = document.getElementById("b");
