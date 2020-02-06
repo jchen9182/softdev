@@ -3,8 +3,8 @@ var ctx = c.getContext("2d");
 var isToggled = true;
 
 var draw = function(e) {
-    var x = e.clientX -= 9; // co-ords of corner of mouse
-    var y = e.clientY -= 9;
+    var x = e.clientX - 9; // co-ords of corner of mouse
+    var y = e.clientY - 9;
 
     if (isToggled) ctx.fillRect(x, y, 50, 30);
     else {
