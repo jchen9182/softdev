@@ -6,7 +6,7 @@ var draw = function(e) {
     var x = e.clientX -= 9; // co-ords of corner of mouse
     var y = e.clientY -= 9;
 
-    if (isToggled) ctx.fillRect(x, y, 100, 100);
+    if (isToggled) ctx.fillRect(x, y, 50, 30);
     else {
         radius = 10;
         ctx.beginPath();
