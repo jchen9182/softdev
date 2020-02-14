@@ -42,31 +42,15 @@ var start_anim = function (e) {
 c.addEventListener("click", start_anim);
 
 var dvd_anim = function (e) {
-    //ctx.clearRect(0, 0, 500, 500);
-    //ctx.drawImage(logo, x, y, 100, 100);
-
-    // x, y of image
-    ctx.beginPath();
-    ctx.arc(x, y, 2, 0, 2 * Math.PI);
-    ctx.fillStyle = "black";
-    ctx.fill();
-
-    // x,y of "real" image
-    // ctx.beginPath();
-    // ctx.arc(x + 10, y + 20, 2, 0, 2 * Math.PI);
-    // ctx.fillStyle = "#1FBED6";
-    // ctx.fill();
+    ctx.clearRect(0, 0, 500, 500);
+    ctx.drawImage(logo, x, y, 150, 100);
 
     // If image reaches the border change direction
-    var change = (Math.random() * 3 + 8.5) / 10;
-    var slope = vy / vx;
-    if (x <= 0 || x >= 500) {
-        vx *= -1 * change;
-        console.log({change, slope, vx, vy});
+    if (x <= -10 || x >= 360) {
+        vx *= -1
     }
-    if (y <= 0 || y >= 500) {
-        vy *= -1 * change;
-        console.log({change, slope, vx, vy});
+    if (y <= -20 || y >= 420) {
+        vy *= -1
     }
 
     x += vx;
@@ -77,22 +61,20 @@ var dvd_anim = function (e) {
 var dvd_anim_start = function (e) {
     running = false;
     window.cancelAnimationFrame(id);
-    
+
     // Randomly determine direction and co-ords
-    x = Math.random() * 500;
-    y = Math.random() * 500;
+    x = Math.random() * 350;
+    y = Math.random() * 400;
+    angle = (Math.random() + 1) * (Math.PI / 6);
     if (Math.random() < 0.5) {
-        vx = 1;
+        vx = Math.cos(angle);
     }
-    else {
-        vx = -1;
-    }
+    else { vx = -1 * Math.cos(angle); }
     if (Math.random() < 0.5) {
-        vy = 1;
+        vy = Math.sin(angle);
     }
-    else {
-         vy = -1; 
-    }
+    else { vy = -1 * Math.sin(angle); }
+    //console.log(angle  * 180 / Math.PI);
     id = window.requestAnimationFrame(dvd_anim);
 }
 dvd.addEventListener("click", dvd_anim_start);
