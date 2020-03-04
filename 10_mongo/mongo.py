@@ -11,6 +11,7 @@ Import Mechanism: import as json then take the contents list and use each entry 
 
 import pymongo
 from pymongo import MongoClient
+import pprint
 
 client = MongoClient()
 db = client.pp
@@ -34,16 +35,16 @@ def find_random():
     return list(reddit.aggregate([{"$sample": {"size": 1}}]))[0]
 
 
-# print(find_author("design-responsibly"))
-# print(find_author("asdfg"))
+# pprint.pprint(find_author("design-responsibly"))
+# pprint.pprint(find_author("asdfg"))
 
-# print(find_min_upvotes(20000))
-# print(find_min_upvotes(9999999))
+# pprint.pprint(find_min_upvotes(20000))
+# pprint.pprint(find_min_upvotes(9999999))
 
-# print(find_max_downvotes(4))
-# print(find_max_downvotes(-1))
+# pprint.pprint(find_max_downvotes(4))
+# pprint.pprint(find_max_downvotes(-1))
 
-# print(find_min_awards(0))
-# print(find_min_awards(999))
+# pprint.pprint(find_min_awards(0))
+# pprint.pprint(find_min_awards(999))
 
-print(find_random())
+pprint.pprint(find_random())
