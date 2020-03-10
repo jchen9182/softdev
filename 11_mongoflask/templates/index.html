@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css"
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    {% block content %}
+    <h2>Type picker</h2>
+    <form action="/results">
+    <select name="type">
+      <option value="Bug" required>Bug</option>
+      <option value="Dragon">Dragon</option>
+      <option value="Electric">Electric</option>
+      <option value="Fighting">Fighting</option>
+      <option value="Fire">Fire</option>
+      <option value="Flying">Flying</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Grass">Grass</option>
+      <option value="Ground">Ground</option>
+      <option value="Ice">Ice</option>
+      <option value="Normal">Normal</option>
+      <option value="Poison">Poison</option>
+      <option value="Psychic">Psychic</option>
+      <option value="Rock">Rock</option>
+      <option value="Water">Water</option>
+    </select>
+    <input type="submit" value="Submit">
+    </form><hr>
+    <!------------------------------------------------------------------------->
+    <h2>Get taller Pokemon than specified (in meters)</h2>
+    <form action="/results">
+      <input type="number" name="minheight" min="0" max="100" required>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form><hr>
+    <!------------------------------------------------------------------------->
+    <a href="/results?dualtype=true"><h2>Get dual-typed Pokemon</h2></a><hr>
+    <!------------------------------------------------------------------------->
+    <h2>Type picker + get heavier Pokemon than specified (in kilograms)
+    <form action="/results">
+    <select name="type">
+      <option value="Bug" required>Bug</option>
+      <option value="Dragon">Dragon</option>
+      <option value="Electric">Electric</option>
+      <option value="Fighting">Fighting</option>
+      <option value="Fire">Fire</option>
+      <option value="Flying">Flying</option>
+      <option value="Ghost">Ghost</option>
+      <option value="Grass">Grass</option>
+      <option value="Ground">Ground</option>
+      <option value="Ice">Ice</option>
+      <option value="Normal">Normal</option>
+      <option value="Poison">Poison</option>
+      <option value="Psychic">Psychic</option>
+      <option value="Rock">Rock</option>
+      <option value="Water">Water</option>
+    </select>
+
+    <input type="number" name="minweight" min="0" max="1000" required>
+    <br>
+    <input type="submit" value="Submit">
+    </form><hr>
+    <!------------------------------------------------------------------------->
+    <h2>Find Pokemon strong against this one (type it correctly)</h2>
+    <form action="/results">
+      <input type="text" name="pokemon" required>
+      <input type="submit" value="Submit">
+    </form>
+    {% endblock %}
+  </body>
+</html>
