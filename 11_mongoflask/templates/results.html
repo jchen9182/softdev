@@ -5,6 +5,7 @@
   <thead><tr>
     <th scope="col">Number</th>
     <th scope="col">Name</th>
+    <th scope="col"></th>
     <th scope="col">Type(s)</th>
     <th scope="col">Height</th>
     <th scope="col">Weight</th>
@@ -14,6 +15,9 @@
   {% for dict in dictList %}
     <tr>
     {% for key, value in dict.items() %}
+      {% if key == "image" %}
+        <img src = {{ value }}>
+      {% endif %}
       <td>{{ value }}</td>
     {% endfor %}
     </tr>
