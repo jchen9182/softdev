@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8z">
+        <title> Shell Scripting </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway&display=swap">
+        <style>
+            html * {
+                font-family: "Raleway", sans-serif;
+                text-align: center;
+                text-decoration: none;
+            }
+
+            body {
+                font-size: 24px;
+                background-color: rgb(232, 249, 255);
+            }
+
+            h1 {
+                color: rgb(150, 162, 255);
+            }
+
+            h2 {
+                color: rgb(255, 150, 217);
+            }
+
+            h3 {
+                color: rgb(255, 171, 115);
+            }
+
+            a {
+                color: rgb(255, 92, 92);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> SHELL SCRIPTING </h1>
+
+        <h2> What is the Kernel? </h2>
+            The kernel is a computer program that controls everything in the system.
+            <br>
+            It handles interactions between the hardware and software and is basically
+            the core of the OS.
+            <br>
+            For example, it might manage files, memory, or I/O.
+        <br>
+
+        <h2> What is the Shell? </h2>
+            The shell is a program that lets the user interact with the kernel.
+            <br>
+            It's accessed from the command line or terminal.
+            <br>
+            Some examples are bash, zsh, and csh.
+        <br>
+
+        <h2> BASH Shell Scripts </h2>
+            A shell script is a file that contains commands that the shell runs.
+            <br>
+            They allow you to automate things and add your own commands to the shell.
+            <h3> Pros </h3>
+                It's easy to write short scripts.
+                <br>
+                The commands you type are the same as the ones used in bash.
+                <br>
+                Piping is very simple to do. You can read more about piping
+                <a href = "https://www.geeksforgeeks.org/piping-in-unix-or-linux/"> 
+                here</a>.
+            <h3> Cons </h3>
+                Execution time is slow.
+                <br>
+                Shell scripts aren't well-suited for long and complex tasks.
+        <br>
+
+        <h2> Notes </h2>
+            Make sure your script is executable by doing chmod +x [path to script].
+            <br>
+            <br>
+            Your script can be saved with .sh or no extension at all.
+            <br>
+            <br>
+            Your script must always have #!/bin/bash at the beginning of the file.
+            <br>
+            It lets the system know that this is a bash script.
+            <br>
+            <br>
+            To execute your script, there are many ways such as ./[script] or 
+            bash [script].
+        <br>
+
+        <h2> What can we do? </h2>
+            <h3> Using Variables </h3>
+                <img src = "pics/a.png">
+                <br>
+                <img src = "pics/ares.png">
+                <br>
+                A variable can be any type.
+            <h3> Reading User Input </h3>
+                <img src = "pics/b.png">
+                <br>
+                <img src = "pics/bres.png">
+                <br>
+                read takes in a variable to store the user input.
+            <h3> Arrays </h3>
+                <img src = "pics/c.png">
+                <br>
+                <img src = "pics/cres.png">
+                <br>
+                Arrays don't need to be declared. You can just set an index equal to a value.
+                <br>
+                You can also use parentheses with spaces to declare an entire array.
+                <br>
+                Use the syntax above to access an array. * and @ access the entire array.
+            <h3> Operators include link </h3>
+                There are a bit too many operators so please refer
+                <a href = "https://www.tutorialspoint.com/unix/unix-basic-operators.htm">
+                here</a>.
+            <h3> If...else </h3>
+                <img src = "pics/d.png">
+                <br>
+                <img src = "pics/dres.png">
+            <h3> Loops </h3>
+                <img src = "pics/e.png">
+                <br>
+                <img src = "pics/eres.png">
+                <img src = "pics/eres2.png">
+                <br>
+                The first loop runs while i is less than three. It prints i and adds one to it.
+                <br>
+                The second loop is basically a for-each loop.
+            <h3> Functions </h3>
+                <img src = "pics/f.png">
+                <br>
+                <img src = "pics/fres.png">
+        <br>
+
+        <h2> Resources </h2>
+            <a href = "https://www.geeksforgeeks.org/introduction-linux-shell-shell-scripting/"> Geeks For Geeks </a>
+            <br>
+            <a href = "https://www.tutorialspoint.com/unix/shell_scripting.htm">
+            TutorialsPoint </a>
+            <br>
+            <a href = "https://www.shellscript.sh/index.html"> ShellScript.sh </a>
+            <br>
+            <br>
+            <a href = "https://github.com/jchen9182/shell_script"> My Repo </a>
+            <br>
+            <a href = "https://docs.google.com/presentation/d/1hbxIq_fkHLGgvj4-eRqqen25ZACfEORGhUEpjBRV5CI/edit?usp=sharing"> My Slides </a>
+    </body>
+</html>
