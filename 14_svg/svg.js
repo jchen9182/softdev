@@ -1,6 +1,7 @@
 var pic = document.getElementById("vimage");
 var dvdId;
 var dirX, dirY;
+var running = false;
 
 var draw = function (e) {
     var x = e.offsetX;//top left corner xcoord of mouse //xcoord of mouse pointer relative to target element
@@ -33,7 +34,7 @@ var draw = function (e) {
 
         c.setAttribute("dirX", dirX);
         c.setAttribute("dirY", dirY);
-        console.log(x);
+        // console.log(x);
 
         // When clicked again
         c.addEventListener("click", function () {
@@ -41,19 +42,12 @@ var draw = function (e) {
                 c.setAttribute("fill", "cyan");
             }
             else {
-                // pic.removeChild(pic.lastChild);
-                // c.setAttribute("cx", Math.random() * 501);
-                // c.setAttribute("cy", Math.random() * 501);
-                // c.setAttribute("fill", "black");
+                c.setAttribute("cx", Math.random() * 501);
+                c.setAttribute("cy", Math.random() * 501);
+                c.setAttribute("fill", "black");
             }
         });
         pic.appendChild(c);
-    }
-}
-
-var clear = function (e) {
-    while (pic.lastChild) {
-        pic.removeChild(pic.lastChild);
     }
 }
 
@@ -80,10 +74,39 @@ var move = function (e) {
 
         circle.setAttribute("cx", x + dirX);
         circle.setAttribute("cy", y + dirY);
-        console.log("x: %f dirX: %f", x, parseFloat(circle.getAttribute("dirX")));
+        // console.log("x: %f dirX: %f", x, parseFloat(circle.getAttribute("dirX")));
     }
-
     dvdId = window.requestAnimationFrame(move);
+}
+
+var xtra_start = function(e) {
+    if (! running) {
+        setInterval(xtra, 100);
+        running = true;
+    }
+}
+var xtra = function (e) {
+    var page = document.getElementById("p");
+    var allCircles = document.getElementsByTagName("circle");
+
+    page.innerHTML = "";
+
+    for (var i = 0; i < allCircles.length; i++) {
+        var circle = allCircles[i];
+        var x = parseInt(circle.getAttribute("cx"));
+        var y = parseInt(circle.getAttribute("cy"));
+        
+        if (circle.getAttribute("fill") == "cyan") {
+            page.innerHTML += "<br><div style = 'color:cyan;'> Circle " + i + ": x: " + x + " y: " + y + "</div>";
+        }
+        else page.innerHTML += "<br><div> Circle " + i + ": x: " + x + " y: " + y + "</div>";
+    }
+}
+
+var clear = function (e) {
+    while (pic.lastChild) {
+        pic.removeChild(pic.lastChild);
+    }
 }
 
 var stop = function (e) {
@@ -100,3 +123,6 @@ stopButton.addEventListener("click", stop);
 
 var clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", clear);
+
+var xtraButton = document.getElementById("xtra");
+xtraButton.addEventListener("click", xtra_start);
