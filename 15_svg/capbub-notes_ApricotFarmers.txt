@@ -1,0 +1,33 @@
+v1:
+From the code, I can see that there is a table in index.html. There is an
+Eventlistener in the JavaScript that will activate upon click for each item in
+the table. I predict that upon clicking, a message/alert will pop up with the
+text that is contained inside the clicked table. I assumed innerHTML to be the
+text and when I checked it out, my predictions were true. I notice that the
+<tr> tag is used to indicate a row while <td> is each item.
+
+v2:
+The second code contained some similarity with the first. There should still be
+the alert from clicking on a cell but there is another Eventlistener which
+should show an alert when a row is clicked. I think when the row is clicked, the
+entire content of that row will be shown. There is an Eventlistener for the
+table itself which should show everything. I think the cell will alert first,
+then the row, and lastly the table. My predictions were true and I noticed how
+the alerts for rows and the table contained the tags. Clicking on the border
+only shows the alert for the table.
+
+v3: In this version, we now have the stop propogation command on clicky. I think this 
+means the event will only trigger for this listener and the rest won't happen.
+We also have a true parameter for adding the Eventlistener to the table now. 
+From the documentation, it seems that the useCapture parameter is now set to true. 
+This now means that the table will alert first and the rest will follow in the
+same order. 
+My predictions were true. Only the innerHTML of the table was displayed when stop
+propogation wasn't commented out. Also, the innerHTML of the table was displayed first and
+then the rest in order. 
+
+v4: In this version, the only change is that now all of the Eventlisteners have their
+useCapture parameter set to true. I think that because of this, the order will be the same as 
+in version 2: cell, row, and table.
+My prediction was wrong. The order was actually the complete opposite: table, row, and then cell. It's kind of like a stack, where first in is the last out. 
+
