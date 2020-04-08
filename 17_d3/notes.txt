@@ -1,0 +1,10 @@
+- The gallery is pretty big and there are a lot of cool examples.
+- It's a lot quicker to look throuh the treemap example and then check
+  with the documentation.
+- The page is interactive and we can edit whatever's in there including the
+  text.
+- There's a scroll bar to the left of the browser one that we can use to jump
+  from each section. The pins show up as bigger dots with the first word of the
+  line.
+- We can run the code snippets directly in the browser and mess around.
+- We can ctrl + z on the snippets.

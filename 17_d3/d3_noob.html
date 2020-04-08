@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--D3 demo: hardcoded bars removed, to be generated fr data-->
+<!--
+    Can yield a horizontal bar chart if properly bound to data
+    (steelblue bars, white number overlays)
+    ...but will yield only blank page at first.
+  -->
+<!--
+Justin Chen and Raymond Lee
+SoftDev2 pd02 and pd01
+2020-04-08
+-->
+
+<style>
+    .chart div {
+        font: 10px sans-serif;
+        background-color: steelblue;
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="chart"></div>
+    <svg id="vimage" height="1000" width="1000" style="border: 1px solid;">
+        <circle cx="500" cy="100" r="10" fill="blue"></circle>
+        Sorry, your browser does not support inline SVG.
+    </svg>
+</body>
+
+<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
+<script>
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+    //Select your chart.
+    var chart = d3.select(".chart");
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+    // (this defines selection to which you will join data)
+    //Join your data.
+    var barUpdate = bar.data(data);
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function (d) {
+        return d * 10 + "px";
+    });
+    //Label each bar.
+    barEnter.text(function (d) {
+        return d;
+    });
+    d3.select("body").transition().style("background-color", "black");
+    d3.selectAll("circle").transition()
+        .duration(750)
+        .delay(function (d, i) { return i * 10; })
+        .attr("r", function (d) { return Math.sqrt(d * scale); });
+</script>
+
+<!--------------------------------
+    Entering the following commands via console will
+    incrementally re-create your hardcoded chart...
+    //Init your data:
+    var data = [4, 8, 15, 16, 23, 42];
+    //Select your chart.
+    var chart = d3.select(".chart");
+    //Prepare for data join.
+    var bar = chart.selectAll("div");
+    (this defines selection to which you will join data)
+    //Join your data.
+    var barUpdate = bar.data(data);
+    //Instantiate new elements by appending to the “enter selection.”
+    var barEnter = barUpdate.enter().append("div");
+    //Set width of each bar proportional to its data value.
+    barEnter.style("width", function(d) {
+    return d * 10 + "px"; });
+    //Label each bar.
+    barEnter.text(function(d) { return d; });
+
+
+    Notes
+    Observations
+    - chart is an object that holds an array of the chart
+    - bar is an object that holds an array of nodelists
+    - barUpdate stores the data
+    - barEnter stores an array of the divs
+    - var barUpdate = bar.data(data); returns undefined
+    - var barEnter = barUpdate.enter().append("div"); returns undefined and creates 5 blue bars that take up the entire width of the page (w/ side margins)
+    - barEnter.style("width", function(d) {
+    - return d * 10 + "px"; }); returns a Prototype object and cuts down the blue bars incrementally
+    - barEnter.text(function(d) { return d; }); returns a Protoype object and appends white text of the bar width on the far right of the bar
+
+    Questions
+    - What are the enter and exit parts of barUpdate?
+    - Why do we selectAll divs from the chart?
+    - What is the prototype field?
+  -------------------------------->
