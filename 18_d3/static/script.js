@@ -4,7 +4,7 @@ SoftDev2 pd02 and pd09
 K18 -- Come Up For Air
 2020-04-21
 
-TY:
+Helpful:
     https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
     https://www.d3-graph-gallery.com/graph/line_basic.html
     https://www.dashingd3js.com/svg-paths-and-d3js
@@ -18,7 +18,7 @@ fetch("/data")
     .then((response) => {
         return response.json();
     })
-    // Get the data and store it in a variable
+    // store the data in a variable
     .then((returnedJSON) => {
         data = returnedJSON["data"];
     });
@@ -121,10 +121,10 @@ function drawGraph() {
 }
 
 function drawLine(n) {
+    // Only draw a line segment
     var years = getYears(n - 1, n);
     var anomalies = getAnomalies(n - 1, n);
     var myData = createDataObject(years, anomalies);
-    console.log(myData);
 
     // Generate the line's path
     var line = d3.line()
@@ -134,18 +134,19 @@ function drawLine(n) {
 
     // Add the line
     svg.append("path")
-        // Pass data to line generator
         .attr("stroke", "red")
         .attr("fill", "none")
         .attr("stroke-width", 1.5)
+        // Pass data to line generator
         .attr("d", line(myData));
 }
 
 function load(e) {
-    // Should only load once
+    // Load and reset after animation
     if (!loaded) {
         d3.select("svg").remove();
         drawGraph(136);
+
         loaded = true;
         done = false;
     }
@@ -156,6 +157,7 @@ function anim(e) {
         if (loaded) {
             window.requestAnimationFrame(anim);
 
+            // Limit speed of drawing
             if (frameCounter % 2 == 0) {
                 drawLine(counter++);
             }
